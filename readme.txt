@@ -21,7 +21,7 @@ Instrucciones de ejecucion:
     cd prueba-carga-login-k6
 
 3. Ejecutar la prueba con el comando:
-    k6 run Script.js
+    k6 run script.js
 
 Descripción de la prueba:
 
@@ -46,3 +46,4 @@ Validaciones implementadas:
 (Las validaciones corresponden a los criterios definidos
 en el ejercicio; los resultados se detallan en el archivo
 conclusiones.txt)
+
