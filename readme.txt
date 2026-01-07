@@ -46,4 +46,3 @@ Validaciones implementadas:
 (Las validaciones corresponden a los criterios definidos
 en el ejercicio; los resultados se detallan en el archivo
 conclusiones.txt)
-
