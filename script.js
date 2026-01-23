@@ -1,4 +1,5 @@
-//k6
+//Ing. Jordy Chila Avilez
+//k6 v1.4.2
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
