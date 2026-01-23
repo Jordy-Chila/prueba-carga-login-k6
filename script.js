@@ -2,8 +2,12 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-//Configuracion de prueba (usuarios, carga, tiempo)
+// Configuración de prueba (usuarios, carga, tiempo)
 export let options = {
+  thresholds: {
+    http_req_duration: ['p(95)<1500'], 
+    http_req_failed: ['rate<0.03'],    
+  },
   scenarios: {
     carga_login: {
       executor: 'constant-arrival-rate',
@@ -53,6 +57,4 @@ export default function () {
     'status es 200': r => r.status === 200,
     'tiempo < 1.5s': r => r.timings.duration < 1500,
   });
-
-  sleep(1);
 }
