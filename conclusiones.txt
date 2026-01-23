@@ -1,48 +1,50 @@
-Ing. Jordy Chila
+Ing. Jordy Chila Avilez
 CONCLUSIONES DE LA PRUEBA DE CARGA
 
-Durante la ejecución de la prueba de carga al servicio de login 
+Durante la ejecución de la prueba de carga al servicio de login,
 con una tasa constante de 20 transacciones por segundo,
 se obtuvieron los siguientes resultados:
 
 Hallazgos principales:
 
-1. El tiempo de respuesta promedio fue de aproximadamente 500 ms,
-  cumpliendo con el umbral establecido de 1.5 segundos en el 98%
-  de las peticiones.
+1. El tiempo de respuesta presentó un p95 de aproximadamente 535 ms,
+   cumpliendo con el umbral establecido de 1.5 segundos definido
+   para la prueba de carga.
 
-2. Sin embargo, se identificó una alta tasa de errores HTTP,
-  superior al 80% del total de las solicitudes ejecutadas,
-  superando ampliamente el límite aceptable del 3%.
-  
+2. Se identificó una tasa de errores HTTP del 82.58% del total de
+   las solicitudes ejecutadas, superando ampliamente el threshold
+   definido (<3%), lo que provocó que el escenario fuera marcado
+   como FAIL por la herramienta k6.
+
 3. La validación del código de respuesta HTTP no fue satisfactoria
-  en la mayoría de las peticiones, lo que indica fallos en el proceso
-  de autenticación bajo carga.
+   en la mayoría de las peticiones, lo que indica fallos en el
+   proceso de autenticación bajo carga.
 
-4. Más del 50% de los checks definidos en el script no se cumplieron,
-  principalmente en la validación del código de respuesta esperado.
+4. El 50% de los checks definidos en el script no se cumplieron,
+   principalmente en la validación del código de respuesta esperado.
 
 Conclusiones:
 
-- Bajo el escenario evaluado, el servicio no cumple con los 
+- Bajo el escenario evaluado, el servicio no cumple con los
   criterios de aceptación definidos para la prueba de carga,
   principalmente debido a la elevada tasa de errores.
 
 - Aunque el rendimiento en términos de latencia es adecuado,
-  la confiabilidad del servicio de login es insuficiente para
-  sostener una carga constante de 20 TPS.
-  
-- Los resultados sugieren limitaciones del endpoint de autenticación 
-  o restricciones propias del servicio utilizado para el ejercicio.
+  la confiabilidad del servicio de login resulta insuficiente
+  para sostener una carga constante de 20 TPS.
+
+- Los resultados sugieren limitaciones del endpoint de
+  autenticación o restricciones propias del servicio utilizado
+  para la realización del ejercicio.
 
 Recomendaciones:
 
-- Validar las credenciales y el comportamiento del endpoint de login,
-  ya que se observó una alta tasa de errores bajo carga.
+- Validar las credenciales utilizadas y el comportamiento del
+  endpoint de login, ya que se observó una alta tasa de errores
+  bajo carga.
 
 - Ejecutar pruebas con menor carga inicial y aumentarla de forma
   progresiva para identificar el punto de falla del servicio.
 
-- Revisar las validaciones (checks) para asegurar que reflejen
-  correctamente los criterios esperados del servicio.
-
+- Revisar y ajustar las validaciones (checks) para asegurar que
+  reflejen correctamente los criterios esperados del servicio.
